@@ -110,12 +110,12 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# move screen to the left
+exec_always ~/.config/i3/i3_startup.sh 
+
 exec_always ~/.config/polybar/launch.sh &
 exec_always feh --bg-fill ~/Pictures/wall.jpg
 exec --no-startup-id /usr/lib/gsd-xsettings
-
-# move screen to the left
-exec_always ~/.config/i3/i3_startup.sh 
 
 # Enables transparent background
 exec compton
@@ -136,4 +136,13 @@ default_floating_border pixel 0
 # Window gaps
 gaps horizontal 5px
 gaps inner 10px
+
+for_window [window_role="pop-up"]                       floating enable
+for_window [window_role="bubble"]                       floating enable
+for_window [window_role="task_dialog"]                  floating enable
+for_window [window_role="Preferences"]                  floating enable
+for_window [window_type="dialog"]                       floating enable
+for_window [window_type="menu"]                         floating enable
+
+for_window [class="gnome-screenshot"]         floating enable
 
